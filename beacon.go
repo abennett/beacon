@@ -53,6 +53,12 @@ func newProvider(c *Config) (DNSProvider, error) {
 			return nil, err
 		}
 		provider = p
+	case c.CloudflareCredentials != nil:
+		p, err := providers.NewCloudflareProvider(c.CloudflareCredentials)
+		if err != nil {
+			return nil, err
+		}
+		provider = p
 	}
 	return provider, nil
 }

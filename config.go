@@ -15,9 +15,10 @@ var (
 )
 
 type Config struct {
-	Domain         string                    `toml:"domain"`
-	TTL            int                       `toml:"ttl"`
-	AWSCredentials *providers.AWSCredentials `toml:"aws"`
+	Domain                string                           `toml:"domain"`
+	TTL                   int                              `toml:"ttl"`
+	AWSCredentials        *providers.AWSCredentials        `toml:"aws"`
+	CloudflareCredentials *providers.CloudflareCredentials `toml:"cloudflare"`
 }
 
 func LoadConfig(b []byte) (*Config, error) {
